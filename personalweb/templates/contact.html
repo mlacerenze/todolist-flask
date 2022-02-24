@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+  <div class="content">
+    <img class="img img-fluid img-view" src="{{ url_for('static', filename='img/bg-contact.png') }}" style="width: 100%;">
+    <div class="centered container">
+      <h1 class="title">DID YOU LIKE THIS APP?</h1>
+      <div class="container container-fluid">
+        <p class="lead p-content">If you want to contribute, you can buy me a coffee or make a small donation to be able to continue uploading material</p>
+      </div>
+      <div class="container mt-5">
+        <a class="text-secondary" href="https://cafecito.app/mlacerenze" target="blank">Cafecito (Argentina)</a>
+        <span class="text-ligh">|</span>
+        <a class="text-secondary" href="https://paypal.me/mlacerenze" target="blank">Paypal</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

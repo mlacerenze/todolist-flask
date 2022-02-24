@@ -1,0 +1,51 @@
+{% extends './base.html' %}
+
+{% block title %}Projects{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="container mt-4 "> 
+      <div class="container">
+        <div class="container">
+          <button class="btn btn-warning">
+            <a href="{{ url_for('project.create') }}" class="text-light">New Project</a>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content">
+      <div class="container">
+        <p class="h2 mt-1 title text-dark">My Tasks</p>
+        
+        <div class="container container-fluid mb-3">
+          <ul class="list-group">
+            {% if projects %}
+              {% for project in projects %}
+                <!-- Show taks -->
+                <section class="container m-2">
+                  <li class="list-group-item list-group-item-warning list-group-item-action"><h4>{{ project.title }}</h4></li>
+                  <li class="list-group-item list-group-item-secondary"><p>{{ project.description }}</p></li> 
+                  
+                  <!-- Buttons to edit and delete -->
+                  <div class="d-grip gap-2 d-md-flex justify-content-md-end mt-2">
+                    <a href="{{ url_for('project.delete', id=project['id']) }}" class="text-light">
+                      <button class="btn btn-danger">Delete</button>
+                    </a>
+                    <a href="{{ url_for('project.edit', id=project['id']) }}" class="text-light">
+                      <button class="btn btn-info ml-2">Edit</button>
+                    </a>
+                  </div>
+                </section>
+              {% endfor %}
+            {% else %}
+            <section class="container m-2">
+              <li class="list-group-item list-group-item-secondary text-center"><p>No task availables</p></li> 
+            </section>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

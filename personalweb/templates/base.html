@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style_home.css') }}">
+
+  <title>APP - {% block title %}{% endblock %}</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- bp is the blueprint -->
+    <a class="navbar lead text-light" href="{{ url_for('bp.home') }}">
+      <img class="img-fluid" src="{{ url_for('static', filename='img/nav-img.png') }}" alt="" width="100" height="60">
+    </a>
+    <a class="navbar lead text-light" href="{{ url_for('bp.home') }}">Home</a>
+    <a class="navbar lead text-light" href="{{ url_for('project.show_projects') }}">Projects</a>
+    <!-- <a class="navbar lead text-light" href="{{ url_for('bp.portfolio') }}">Portfolio</a> -->
+    <a class="navbar lead text-light" href="{{ url_for('bp.contact') }}">Donations</a>
+  </nav>
+
+  {% for message in get_flashed_messages() %}
+    <div class="container">
+      <div class="container">
+        <div class="container alert alert-info alert-dismissible mt-3" role="alert"> 
+          <button type="button" class="close" data-dismiss="alert" >
+            <span aria-hidden="true">&times</span>
+          </button>
+          {{ message }}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+  {% block content %}
+  {% endblock %}
+
+  <footer class="page-footer bg-dark p-3 mb-0">
+    <div class="navbar navbar-expand d-flex justify-content-center">
+      <a class="navbar lead text-light" href="{{ url_for('bp.home') }}">
+        <img class="img img-fluid" src="{{ url_for('static', filename='img/footer-img.png') }}" alt="" width="60" height="20">
+      </a>
+      <a class="narbar text-white small"><b>Mark Lacerenze </b></a>
+      <span class="navbar text-light">|</span>
+      <a class="navbar small text-light" href="https://github.com/mlacerenze">GitHub</a>
+      <a class="navbar small text-light" href="https://www.linkedin.com/in/mlacerenze/">LinkedIn</a>
+      <a class="navbar small text-light" href="https://www.instagram.com/mlacerenze/">Instagram</a>
+      <a class="navbar small text-light" href="https://twitter.com/mlacerenze">Twitter</a>
+    </div>
+  </footer>
+</body>
+</html>

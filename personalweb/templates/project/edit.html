@@ -1,0 +1,20 @@
+{% extends './base.html' %}
+
+{% block title %}Edit Project{% endblock %}
+
+{% block content %}
+  <form action="{{ url_for('project.update', id=project.id) }}" method="post">
+    <div class="container form form-group">
+      <p class="h2 mt-1">Edit Project</p>
+      <div class="input-group mb-3">
+        <span class="input-group-text bg-info" id="basic_addon1">Edit Title</span>
+        <input type="text" name="title" id="title" class="form-control" aria-describedby="basic-addon1" value="{{project.title}}">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text bg-info">Edit Description</span>
+        <textarea id="exampleFormControlTextarea1" class="form-control" name="description">{{project.description}}"</textarea>
+      </div>
+      <button type="submit" class="btn btn-success" value="Save">Save</button>
+    </div>
+  </form>
+{% endblock %}

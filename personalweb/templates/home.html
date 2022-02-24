@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <div class="content">
+    <img class="img img-fluid img-view" src="{{ url_for('static', filename='img/bg-img.png') }}" style="width: 100%;">
+    <div class="centered container">
+      <h1 class="title">WELCOME TODO LIST APP</h1>
+      <div class="container">
+        <p class="lead p-content">in this demo you will be able to add, edit and delete tasks that you want to do</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

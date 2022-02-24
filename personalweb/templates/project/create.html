@@ -1,0 +1,20 @@
+{% extends './base.html' %}
+
+{% block title %}Create Project{% endblock %}
+
+{% block content %}
+<form action="{{ url_for('project.insert') }}" method="post">
+  <div class="container form form-group">
+    <h1 class="title mt-1">Create Project</h1>
+    <div class="input-group mb-3">
+      <span class="input-group-text bg-info" id="basic_addon1">Title</span>
+      <input type="text" name="title" id="title" class="form-control" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text bg-info">Description</span>
+      <textarea id="exampleFormControlTextarea1" class="form-control" name="description"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success" value="Create">Create</button>
+  </div>
+  </form>
+{% endblock %}
